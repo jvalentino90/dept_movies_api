@@ -4,14 +4,13 @@ module Dept
       rescue_from MovieService::ConnectionError, with: :connection_error
 
       def index
-        binding.pry
-        movies = MovieService.fetch_movies(params.permit(:query, :language, :page, :locale).to_h)
+        movies = MovieService.fetch_movies(params.permit(:query, :page, :language).to_h)
         render json: movies
       end
 
       def trailers
         movie_id = params[:id]
-        trailers = MovieService.fetch_trailers(movie_id, params[:page])
+        trailers = MovieService.fetch_trailers(movie_id, params.permit(:language).to_h)
         render json: trailers
       end
 

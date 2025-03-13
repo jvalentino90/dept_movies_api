@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/123/videos?language=en
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - "<AUTH>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 13 Mar 2025 15:57:23 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=24138
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 06c58770b9f6653f5eeb9ab7327cc160
+      X-Memc-Age:
+      - '3774'
+      X-Memc-Expires:
+      - '24138'
+      Etag:
+      - W/"68e20c77a427adf1b817184f2fa4ded2"
+      Vary:
+      - Accept-Encoding,accept-encoding
+      - Origin
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 254630525cfeeb642bb13c6da3e0c7e8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - MIA50-P4
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - dpUvx8ALKCrpdF3H3yf56CAroqyWl2F87rZ50UTgpF03xfiAm13rtQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":123,"results":[{"iso_639_1":"en","iso_3166_1":"US","name":"The
+        Lord of the Rings (animated 1978)","key":"wPe6BNPUmI0","site":"YouTube","size":360,"type":"Trailer","official":true,"published_at":"2014-07-08T22:08:04.000Z","id":"640cd15401432500e39b3055"}]}'
+  recorded_at: Thu, 13 Mar 2025 15:57:23 GMT
+recorded_with: VCR 6.2.0

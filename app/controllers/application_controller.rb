@@ -6,7 +6,8 @@ class ApplicationController < ActionController::API
   private
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    params[:language] ||= I18n.default_locale
+    I18n.locale = params[:language]
   end
   def authenticate_user
     if api_key.blank?
@@ -29,7 +30,7 @@ class ApplicationController < ActionController::API
     Rails.logger.error(exception.message)
     Rails.logger.error(exception.backtrace.join("\n"))
 
-    render json: { exception: exception.message }, status: :unprocessable_entity
+    render json: { exception: exception.message }, status: :internal_server_error
   end
 end
 

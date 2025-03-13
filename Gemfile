@@ -46,5 +46,17 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  # Provides "its" method formerly part of rspec-core (https://github.com/rspec/rspec-its)
+  gem 'rspec-its'
+
+  # RSpec for Rails (https://github.com/rspec/rspec-rails)
+  gem 'rspec-rails'
+
+  # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests. (https://relishapp.com/vcr/vcr/docs)
+  gem 'vcr'
+  gem 'webmock'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

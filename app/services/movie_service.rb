@@ -11,18 +11,17 @@ class MovieService
 
   class << self
     def fetch_movies(params)
-      query = URI.encode_www_form(params)
-      response = connection.get("#{BASE_URL}/search/movie?#{query}")
+      response = connection.get("#{BASE_URL}/search/movie", params)
       body = response.body
       unless response.success?
         raise ConnectionError, "Error in request, status: #{response.status}, body: #{body}"
       end
 
-      response.body.deep_symbolize_keys
+      response.body
     end
 
-    def fetch_trailers(movie_id, page)
-      response = connection.get("#{BASE_URL}/movie/#{movie_id}/videos?page=#{page}")
+    def fetch_trailers(movie_id, params)
+      response = connection.get("#{BASE_URL}/movie/#{movie_id}/videos", params)
       body = response.body
       unless response.success?
         raise ConnectionError, "Error in request, status: #{response.status}, body: #{body}"
