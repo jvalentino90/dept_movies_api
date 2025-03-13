@@ -1,0 +1,3 @@
+es:
+  invalid_api_key: 'API KEY Invalida'
+  must_specify_api_key: 'Debes especificar una API key'

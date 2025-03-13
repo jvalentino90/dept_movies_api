@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  get 'movies', to: 'movies#index'
-  get 'movies/:id/trailers', to: 'movies#trailers'
+  namespace :dept do
+    namespace :v1 do
+      get 'movies', to: 'movies#index'
+      get 'movies/:id/trailers', to: 'movies#trailers'
+    end
+  end
 end

@@ -21,18 +21,17 @@ class MovieService
       response.body.deep_symbolize_keys
     end
 
-    def fetch_trailers(movie_id)
-      response = connection.get("#{BASE_URL}/movie/#{movie_id}/videos")
+    def fetch_trailers(movie_id, page)
+      response = connection.get("#{BASE_URL}/movie/#{movie_id}/videos?page=#{page}")
       body = response.body
       unless response.success?
         raise ConnectionError, "Error in request, status: #{response.status}, body: #{body}"
       end
-      binding.pry
-      vimeo_youtube_trailers = filter_trailers(response.body['results'])
+      filter_trailers(response.body['results'])
     end
 
 
-    # private
+    private
     def connection
       Faraday.new(url: BASE_URL) do |conn|
         conn.headers['Authorization'] = "Bearer #{API_KEY}"
